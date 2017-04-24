@@ -362,6 +362,18 @@
     <Compile Include="..\ClosedXML\Excel\Drawings\IXLDrawing.cs">
       <Link>Excel\Drawings\IXLDrawing.cs</Link>
     </Compile>
+    <Compile Include="..\ClosedXML\Excel\Drawings\IXLMarker.cs"> 
+      <Link>Excel\Drawings\IXLMarker.cs</Link>
+    </Compile>
+    <Compile Include="..\ClosedXML\Excel\Drawings\IXLPicture.cs">
+      <Link>Excel\Drawings\IXLPicture.cs</Link>
+    </Compile>
+    <Compile Include="..\ClosedXML\Excel\Drawings\XLMarker.cs">
+      <Link>Excel\Drawings\XLMarker.cs</Link>
+    </Compile>
+    <Compile Include="..\ClosedXML\Excel\Drawings\XLPicture.cs">
+      <Link>Excel\Drawings\XLMarker.cs</Link>
+    </Compile>
     <Compile Include="..\ClosedXML\Excel\Drawings\IXLDrawingPosition.cs">
       <Link>Excel\Drawings\IXLDrawingPosition.cs</Link>
     </Compile>
