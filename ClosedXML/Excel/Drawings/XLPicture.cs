@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using DocumentFormat.OpenXml.Packaging;
 
 namespace ClosedXML.Excel.Drawings
 {
@@ -12,6 +13,7 @@ namespace ClosedXML.Excel.Drawings
         private List<IXLMarker> Markers;
         private String name;
         private bool isAbsolute;
+        private ImagePartType type = ImagePartType.Jpeg;
 
         private long iMaxWidth = 500;
         private long iMaxHeight = 500;
@@ -210,6 +212,25 @@ namespace ClosedXML.Excel.Drawings
             }
         }
 
+        public String Type
+        {
+            get
+            {
+                return GetExtension(type);
+            }
+            set
+            {
+                try
+                {
+                    type = (ImagePartType)Enum.Parse(typeof(ImagePartType), value, true);
+                }
+                catch
+                {
+                    type = ImagePartType.Jpeg;
+                }
+            }
+        }
+
         public void StreamCopy(Stream input, Stream copy)
         {
             byte[] buffer = new byte[4096];
@@ -218,6 +239,16 @@ namespace ClosedXML.Excel.Drawings
             {
                 copy.Write(buffer, 0, read);
             }
+        }
+
+        private String GetExtension(ImagePartType type)
+        {
+            return type.ToString();
+        }
+
+        public ImagePartType GetImagePartType()
+        {
+            return type;
         }
     }
 }

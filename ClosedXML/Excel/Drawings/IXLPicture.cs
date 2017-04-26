@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
- 	 
+using DocumentFormat.OpenXml.Packaging;
+
 namespace ClosedXML.Excel.Drawings
 {
  	public interface IXLPicture
@@ -23,6 +24,12 @@ namespace ClosedXML.Excel.Drawings
  	long RawOffsetY { get; set; }
     bool IsAbsolute { get; set; }
 
+    /// <summary>
+    /// Type of image. The supported formats are defined by OpenXML's ImagePartType.
+    /// Default value is "jpeg"
+    /// </summary>
+    String Type { get; set; }
+
  	String Name { get; set; }
 
     /// <summary>
@@ -31,5 +38,9 @@ namespace ClosedXML.Excel.Drawings
     /// <param name="input">Stream to be copied.</param>
     /// <param name="copy">Stream to be copied onto.</param>
     void StreamCopy(Stream input, Stream copy);
+    /// <summary>
+    /// Get the enum representation of the Picture type.
+    /// </summary>
+    ImagePartType GetImagePartType();
  	}
 }	  
